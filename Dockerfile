@@ -17,8 +17,8 @@
 ### 	https://hub.docker.com/r/waleedka/modern-deep-learning/
 
 
-# 17.04 is the latest - Out on April 13, 2017
-FROM ubuntu:17.04
+# 17.10 is the latest - Out on October, 2017
+FROM ubuntu:17.10
 LABEL maintainer="Eric Amram <eric dot amram at gmail dot com>"
 
 # Headless front-end, remove warnings
@@ -30,12 +30,20 @@ RUN apt-get update -qq
 # Utils
 RUN apt-get install -y --no-install-recommends apt-utils \
  && apt-get install -y --no-install-recommends \
+    locales \
 	ssh vim unzip less procps \
 	git curl wget \
 	build-essential g++ cmake \
  && echo 'Acquire::Retries "5";' > /etc/apt/apt.conf.d/99AcquireRetries \
  && sed -i 's/main$/main contrib non-free/' /etc/apt/sources.list
  ##&& apt-get install -y --no-install-recommends linux-headers-generic initramfs-tools
+
+
+# Locales
+RUN locale-gen "en_US.UTF-8"
+ && update-locale LC_ALL="en_US.UTF-8" LANG="en_US.UTF-8"
+
+ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
 
 # Python (3.5)
