@@ -59,11 +59,11 @@ RUN apt-get install -y --no-install-recommends \
     python3-h5py \
     python3-yaml \
     python3-pydot
-# Upgrade with latest pip
-RUN pip3 install --no-cache-dir --upgrade pip setuptools
-# Alias
-RUN echo "alias python='python3'" >> /root/.bash_aliases \
+# Upgrade with latest pip and create aliases
+RUN pip3 install --no-cache-dir --upgrade pip setuptools \
+ && echo "alias python='python3'" >> /root/.bash_aliases \
  && echo "alias pip='pip3'" >> /root/.bash_aliases
+
 
 # Pillow (with dependencies)
 RUN apt-get install -y --no-install-recommends libjpeg-dev zlib1g-dev \
