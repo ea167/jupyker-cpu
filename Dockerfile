@@ -40,7 +40,7 @@ RUN apt-get install -y --no-install-recommends apt-utils \
 
 
 # Locales
-RUN locale-gen "en_US.UTF-8"
+RUN locale-gen "en_US.UTF-8" \
  && update-locale LC_ALL="en_US.UTF-8" LANG="en_US.UTF-8"
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
