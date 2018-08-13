@@ -17,8 +17,8 @@
 ### 	https://hub.docker.com/r/waleedka/modern-deep-learning/
 
 
-# 17.10 is the latest - Out on October, 2017
-FROM ubuntu:17.10
+# 18.04 is the latest - Out on April, 2018
+FROM ubuntu:18.04
 LABEL maintainer="Eric Amram <eric dot amram at gmail dot com>"
 
 # Headless front-end, remove warnings
